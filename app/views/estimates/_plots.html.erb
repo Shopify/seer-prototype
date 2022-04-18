@@ -1,0 +1,20 @@
+<div id="risk-plots">
+  <%=
+    Vega.lite
+    .data(@sampled_scenarios)
+    .mark(type: "bar", tooltip: true)
+    .encoding(
+      x: {
+        field: "r",
+        title: "Risk",
+        bin: {
+          maxbins: 100
+        }
+      },
+      y: {
+        title: "Number of Scenarios",
+        aggregate: "count"
+      }
+    )
+  %>
+</div>
