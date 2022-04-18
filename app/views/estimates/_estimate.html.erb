@@ -1,0 +1,47 @@
+<div id="<%= dom_id estimate %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Expert:</strong>
+    <%= estimate.expert.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Project:</strong>
+    <%= estimate.project.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Max magnitude:</strong>
+    <%= estimate.max_magnitude %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Likely magnitude:</strong>
+    <%= estimate.likely_magnitude %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Min magnitude:</strong>
+    <%= estimate.min_magnitude %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Max frequency:</strong>
+    <%= estimate.max_frequency %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Likely frequency:</strong>
+    <%= estimate.likely_frequency %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Min frequency:</strong>
+    <%= estimate.min_frequency %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this estimate", estimate, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this estimate', edit_estimate_path(estimate), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

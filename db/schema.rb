@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_15_160656) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_18_134757) do
+  create_table "estimates", force: :cascade do |t|
+    t.integer "expert_id", null: false
+    t.integer "project_id", null: false
+    t.integer "max_magnitude"
+    t.integer "likely_magnitude"
+    t.integer "min_magnitude"
+    t.decimal "max_frequency"
+    t.decimal "likely_frequency"
+    t.decimal "min_frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expert_id"], name: "index_estimates_on_expert_id"
+    t.index ["project_id"], name: "index_estimates_on_project_id"
+  end
+
   create_table "experts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,4 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_160656) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "estimates", "experts"
+  add_foreign_key "estimates", "projects"
 end

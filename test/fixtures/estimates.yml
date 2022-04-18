@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expert: one
+  project: one
+  max_magnitude: 1
+  likely_magnitude: 1
+  min_magnitude: 1
+  max_frequency: 9.99
+  likely_frequency: 9.99
+  min_frequency: 9.99
+
+two:
+  expert: two
+  project: two
+  max_magnitude: 1
+  likely_magnitude: 1
+  min_magnitude: 1
+  max_frequency: 9.99
+  likely_frequency: 9.99
+  min_frequency: 9.99
