@@ -1,0 +1,29 @@
+<table class="table-auto">
+  <caption>Estimates</caption>
+  <thead>
+    <tr class="bg-slate-200 border-y">
+      <th>Expert</th>
+      <th>Project</th>
+      <th>Min magn.</th>
+      <th>Likely magn.</th>
+      <th>Max magn.</th>
+      <th>Min freq.</th>
+      <th>Likely freq.</th>
+      <th>Max freq.</th>
+    </tr>
+  </thead>
+  <tbody class="border-y">
+    <% @project.estimates.each do |estimate| %>
+      <tr>
+        <td class="border-x"><%= estimate.expert.name %></td>
+        <td class="border-x"><%= estimate.project.name %></td>
+        <td class="border-x text-center"><%= estimate.min_magnitude %></td>
+        <td class="border-x text-center"><%= estimate.likely_magnitude %></td>
+        <td class="border-x text-center"><%= estimate.max_magnitude %></td>
+        <td class="border-x text-center"><%= estimate.min_frequency %></td>
+        <td class="border-x text-center"><%= estimate.likely_frequency %></td>
+        <td class="border-x text-center"><%= estimate.max_frequency %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
