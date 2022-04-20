@@ -52,7 +52,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Crunch numbers
-gem 'simple-random'
+gem "simple-random"
 
 # Pretty plots
 gem "vega"
