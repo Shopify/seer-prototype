@@ -1,12 +1,17 @@
-<div id="<%= dom_id project %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= project.name %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this project', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div id="<%= dom_id project %>" class="my-4 grid grid-cols-2">
+  <div>
+    <table>
+      <tr class="my-5">
+        <th class="text-left px-4">Name:</th>
+        <td class="text-left"><%= project.name %></td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <% if action_name != "show" %>
+      <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this project', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  </div>
 </div>
+<hr class="mt-6">
