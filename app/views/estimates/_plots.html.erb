@@ -2,8 +2,6 @@
   <%=
     Vega.lite
     .data(@sampled_scenarios)
-    .width(1000)
-    .height(600)
     .mark(type: "bar", tooltip: true)
     .encoding(
       x: {
