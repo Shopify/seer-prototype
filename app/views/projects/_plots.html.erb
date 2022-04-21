@@ -1,48 +1,103 @@
 <div id="estimate-plots">
   <div id="magnitude-plot">
   <%=
-    Vega.lite
+    layer_1 = Vega.lite
     .data({values: project.estimates})
-    .mark(type: "errorbar", tooltip: true)
-    .encoding(
-      x: {
-        field: "min_magnitude",
-        type: "quantitative",
-        title: "Magnitude",
+    .layer([
+      {
+        mark: {
+          type: "errorbar",
+          tooltip: true
+        },
+        encoding: {
+          x: {
+            field: "min_magnitude",
+            type: "quantitative",
+            title: "Magnitude",
 
+          },
+          x2: {
+            field: "max_magnitude",
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal",
+            title: "Expert",
+          }
+        }
       },
-      x2: {
-        field: "max_magnitude",
-      },
-      y: {
-        field: "expert_id",
-        type: "nominal",
-        title: "Expert",
+      {
+        mark: {
+          type: "point",
+          tooltip: true,
+          filled: true,
+          size: 60,
+          color: "red"
+        },
+        encoding: {
+          x: {
+            field: "likely_magnitude",
+            type: "quantitative",
+
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal"
+          }
+        }
       }
-    )
+    ])
   %>
   </div>
   <div id="frequency-plot">
   <%=
     Vega.lite
     .data({values: project.estimates})
-    .mark(type: "errorbar", tooltip: true)
-    .encoding(
-      x: {
-        field: "min_frequency",
-        type: "quantitative",
-        title: "Frequency",
+    .layer([
+      {
+        mark: {
+          type: "errorbar",
+          tooltip: true
+        },
+        encoding: {
+          x: {
+            field: "min_frequency",
+            type: "quantitative",
+            title: "Frequency",
 
+          },
+          x2: {
+            field: "max_frequency",
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal",
+            title: "Expert",
+          }
+        }
       },
-      x2: {
-        field: "max_frequency",
-      },
-      y: {
-        field: "expert_id",
-        type: "nominal",
-        title: "Expert",
+      {
+        mark: {
+          type: "point",
+          tooltip: true,
+          filled: true,
+          size: 60,
+          color: "red"
+        },
+        encoding: {
+          x: {
+            field: "likely_frequency",
+            type: "quantitative",
+
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal"
+          }
+        }
       }
-    )
+    ])
+
   %>
   </div>
 </div>
