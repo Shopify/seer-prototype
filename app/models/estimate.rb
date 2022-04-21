@@ -20,6 +20,8 @@ class Estimate < ApplicationRecord
   belongs_to :project
   has_many :scenario_bin
 
+  after_create :create_scenario_bins
+
   validates :min_magnitude, :likely_magnitude, :max_magnitude, :min_frequency, :likely_frequency, :max_frequency, presence: true
   validates :min_magnitude, numericality: { greater_than: 0, only_integer: true }
   validates :likely_magnitude, numericality: { greater_than: 0, only_integer: true }
@@ -30,4 +32,25 @@ class Estimate < ApplicationRecord
 
   include ActiveModel::Validations
   validates_with MonotonicEstimateValidator
+
+  private
+
+  def create_scenario_bins
+    magnitude_estimate = EstimatesHelper::ThreePointEstimate.new(
+      min: self[:min_magnitude],
+      likely: self[:likely_magnitude],
+      max: self[:max_magnitude]
+    )
+    frequency_estimate = EstimatesHelper::ThreePointEstimate.new(
+      min: self[:min_frequency],
+      likely: self[:likely_frequency],
+      max: self[:max_frequency]
+    )
+
+    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
+
+    sampled_scenarios.each do |scenario|
+      ScenarioBin.create(estimate: self, value: scenario[:value], count: scenario[:count])
+    end
+  end
 end

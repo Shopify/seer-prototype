@@ -24,23 +24,6 @@ class EstimatesController < ApplicationController
     # TODO: move this logic to the model, since that's also where validation occurs
     @estimate = Estimate.new(estimate_params)
 
-    magnitude_estimate = EstimatesHelper::ThreePointEstimate.new(
-      min: @estimate[:min_magnitude],
-      likely: @estimate[:likely_magnitude],
-      max: @estimate[:max_magnitude]
-    )
-    frequency_estimate = EstimatesHelper::ThreePointEstimate.new(
-      min: @estimate[:min_frequency],
-      likely: @estimate[:likely_frequency],
-      max: @estimate[:max_frequency]
-    )
-
-    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
-
-    sampled_scenarios.each do |scenario|
-      ScenarioBin.new(estimate: @estimate, value: scenario[:value], count: scenario[:count])
-    end
-
     respond_to do |format|
       if @estimate.save
         format.html { redirect_to estimate_url(@estimate), notice: "Estimate was successfully created." }
