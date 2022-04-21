@@ -2,18 +2,19 @@
   <%=
     Vega.lite
     .data(@sampled_scenarios)
+    .width(1000)
+    .height(600)
     .mark(type: "bar", tooltip: true)
     .encoding(
       x: {
-        field: "r",
+        field: "value",
+        type: "quantitative",
         title: "Risk",
-        bin: {
-          maxbins: 100
-        }
       },
       y: {
+        field: "count",
+        type: "quantitative",
         title: "Number of Scenarios",
-        aggregate: "count"
       }
     )
   %>

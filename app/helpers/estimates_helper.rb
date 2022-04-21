@@ -20,6 +20,8 @@ module EstimatesHelper
   end
 
   class Scenario
+    require 'histogram/array'
+
     def initialize(magnitude_estimate:, frequency_estimate:)
       @magnitude_estimate = magnitude_estimate
       @frequency_estimate = frequency_estimate
@@ -31,12 +33,23 @@ module EstimatesHelper
       20_000.times do
         magnitude = @magnitude_estimate.sample
         frequency = @frequency_estimate.sample
-        risk = frequency * magnitude
 
-        sampled_scenarios << { m: magnitude, f: frequency, r: risk }
+        sampled_scenarios << frequency * magnitude
       end
 
-      sampled_scenarios
+      histogram_scenarios = sampled_scenarios.histogram(
+        100, # use 100 bins
+        min: @magnitude_estimate.min * @frequency_estimate.min,
+        max: @magnitude_estimate.max * @frequency_estimate.max
+      )
+
+      scenario_results = []
+      # left array is values, right array is counts
+      histogram_scenarios[0].zip(histogram_scenarios[1]) do |pair|
+        scenario_results << { value: pair[0].round(2), count: pair[1] }
+      end
+
+      scenario_results
     end
   end
 end

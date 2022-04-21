@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 
 # Crunch numbers
 gem "simple-random"
+gem "histogram"
 
 # Pretty plots
 gem "vega"
