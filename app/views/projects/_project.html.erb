@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <th class="text-left px-4">Avg likely magnitude</th>
-        <td class="text-left"><%= project.average_of_likely_magnitudes %>
+        <td class="text-left"><%= project.average_of_likely_magnitudes.round(2) %>
       </tr>
       <tr>
         <th class="text-left px-4">Max magnitude</th>
@@ -27,7 +27,7 @@
       </tr>
       <tr>
         <th class="text-left px-4">Avg likely frequency</th>
-        <td class="text-left"><%= project.average_of_likely_frequencies %>
+        <td class="text-left"><%= project.average_of_likely_frequencies.round(2) %>
       </tr>
       <tr>
         <th class="text-left px-4">Max frequency</th>
