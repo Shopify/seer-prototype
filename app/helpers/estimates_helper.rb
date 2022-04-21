@@ -37,11 +37,7 @@ module EstimatesHelper
         sampled_scenarios << frequency * magnitude
       end
 
-      histogram_scenarios = sampled_scenarios.histogram(
-        100, # use 100 bins
-        min: @magnitude_estimate.min * @frequency_estimate.min,
-        max: @magnitude_estimate.max * @frequency_estimate.max
-      )
+      histogram_scenarios = sampled_scenarios.histogram(100)
 
       scenario_results = []
       # left array is values, right array is counts
