@@ -1,0 +1,48 @@
+<div id="estimate-plots">
+  <div id="magnitude-plot">
+  <%=
+    Vega.lite
+    .data({values: project.estimates})
+    .mark(type: "errorbar", tooltip: true)
+    .encoding(
+      x: {
+        field: "min_magnitude",
+        type: "quantitative",
+        title: "Magnitude",
+
+      },
+      x2: {
+        field: "max_magnitude",
+      },
+      y: {
+        field: "expert_id",
+        type: "nominal",
+        title: "Expert",
+      }
+    )
+  %>
+  </div>
+  <div id="frequency-plot">
+  <%=
+    Vega.lite
+    .data({values: project.estimates})
+    .mark(type: "errorbar", tooltip: true)
+    .encoding(
+      x: {
+        field: "min_frequency",
+        type: "quantitative",
+        title: "Frequency",
+
+      },
+      x2: {
+        field: "max_frequency",
+      },
+      y: {
+        field: "expert_id",
+        type: "nominal",
+        title: "Expert",
+      }
+    )
+  %>
+  </div>
+</div>
