@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_18_134757) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_21_131808) do
   create_table "estimates", force: :cascade do |t|
     t.integer "expert_id", null: false
     t.integer "project_id", null: false
@@ -38,6 +38,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_134757) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scenario_bins", force: :cascade do |t|
+    t.integer "estimate_id", null: false
+    t.decimal "value"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estimate_id"], name: "index_scenario_bins_on_estimate_id"
+  end
+
   add_foreign_key "estimates", "experts"
   add_foreign_key "estimates", "projects"
+  add_foreign_key "scenario_bins", "estimates"
 end

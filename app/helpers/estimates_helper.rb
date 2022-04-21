@@ -30,7 +30,7 @@ module EstimatesHelper
     def sample
       sampled_scenarios = []
 
-      20_000.times do
+      1_000_000.times do
         magnitude = @magnitude_estimate.sample
         frequency = @frequency_estimate.sample
 
@@ -42,7 +42,7 @@ module EstimatesHelper
       scenario_results = []
       # left array is values, right array is counts
       histogram_scenarios[0].zip(histogram_scenarios[1]) do |pair|
-        scenario_results << { value: pair[0].round(2), count: pair[1] }
+        scenario_results << { value: pair[0], count: pair[1] }
       end
 
       scenario_results

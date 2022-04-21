@@ -8,21 +8,6 @@ class EstimatesController < ApplicationController
 
   # GET /estimates/1 or /estimates/1.json
   def show
-    # TODO this should not be done per #show. It should be done once
-    # when #create or #edit are called, then the results should be stored.
-    # Otherwise the results change on each viewing, which is dodgy.
-    magnitude_estimate = EstimatesHelper::ThreePointEstimate.new(
-      min: @estimate[:min_magnitude],
-      likely: @estimate[:likely_magnitude],
-      max: @estimate[:max_magnitude]
-    )
-    frequency_estimate = EstimatesHelper::ThreePointEstimate.new(
-      min: @estimate[:min_frequency],
-      likely: @estimate[:likely_frequency],
-      max: @estimate[:max_frequency]
-    )
-
-    @sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
   end
 
   # GET /estimates/new
@@ -36,7 +21,25 @@ class EstimatesController < ApplicationController
 
   # POST /estimates or /estimates.json
   def create
+    # TODO: move this logic to the model, since that's also where validation occurs
     @estimate = Estimate.new(estimate_params)
+
+    magnitude_estimate = EstimatesHelper::ThreePointEstimate.new(
+      min: @estimate[:min_magnitude],
+      likely: @estimate[:likely_magnitude],
+      max: @estimate[:max_magnitude]
+    )
+    frequency_estimate = EstimatesHelper::ThreePointEstimate.new(
+      min: @estimate[:min_frequency],
+      likely: @estimate[:likely_frequency],
+      max: @estimate[:max_frequency]
+    )
+
+    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
+
+    sampled_scenarios.each do |scenario|
+      ScenarioBin.new(estimate: @estimate, value: scenario[:value], count: scenario[:count])
+    end
 
     respond_to do |format|
       if @estimate.save
