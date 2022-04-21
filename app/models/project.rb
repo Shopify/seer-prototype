@@ -26,4 +26,31 @@ class Project < ApplicationRecord
   def max_of_max_frequencies
     self.estimates.maximum(:max_frequency)
   end
+
+  def magnitude_possibilities
+    estimates = self.estimates.select(:max_magnitude, :min_magnitude).order(:min_magnitude)
+    operations = {}
+
+    estimates.each do |estimate|
+      operations[estimate.max_magnitude] ||= []
+      operations[estimate.max_magnitude] << -1
+
+      operations[estimate.min_magnitude] ||= []
+      operations[estimate.min_magnitude] << 1
+    end
+
+    magnitude_to_count = { 0 => 0 }
+    count = 0
+    operations.keys.sort.each do |key|
+      count = count + operations[key].sum
+      magnitude_to_count[key] = count
+    end
+
+    possibilites = []
+    magnitude_to_count.each do |magnitude, count|
+      possibilites << { magnitude:, count: }
+    end
+
+    possibilites
+  end
 end

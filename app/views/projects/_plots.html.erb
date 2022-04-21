@@ -1,4 +1,27 @@
 <div id="estimate-plots">
+<div id="magnitude-possibilities-plot">
+  <%=
+    Vega.lite
+    .data({values: project.magnitude_possibilities})
+    .mark(
+      type: "area",
+      tooltip: true,
+      interpolate: "step-after"
+    )
+    .encoding(
+      x: {
+        field: "magnitude",
+        type: "quantitative",
+        title: "Magnitude",
+      },
+      y: {
+        field: "count",
+        type: "quantitative",
+        title: "Count",
+      }
+    )
+  %>
+  </div>
   <div id="magnitude-plot">
   <%=
     Vega.lite
