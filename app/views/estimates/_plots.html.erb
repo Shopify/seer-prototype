@@ -1,7 +1,7 @@
 <div id="risk-plots">
   <%=
     Vega.lite
-    .data({values: @estimate.scenario_bin.select(:value, :count)})
+    .data({values: estimate.scenario_bin.select(:value, :count)})
     .mark(type: "bar", tooltip: true)
     .encoding(
       x: {

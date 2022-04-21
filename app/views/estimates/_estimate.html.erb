@@ -1,3 +1,4 @@
+<div class="grid grid-cols-2 mx-auto">
 <table id="<%= dom_id estimate %>">
   <tr>
     <th class="text-left px-4">Expert</th>
@@ -39,9 +40,11 @@
     <td class="text-left"><%= estimate.max_frequency %></td>
   </tr>
 </table>
-
+<%= render "plots", estimate: estimate %>
+    </div>
 <% if action_name != "show" %>
   <%= link_to "Show this estimate", estimate, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   <%= link_to 'Edit this estimate', edit_estimate_path(estimate), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
   <hr class="mt-6">
 <% end %>
+

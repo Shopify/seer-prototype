@@ -3,10 +3,10 @@
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
-    <div class="grid grid-cols-2 mx-auto">
+
       <%= render @estimate %>
-      <%= render "plots" %>
-    </div>
+
+
     <%= link_to 'Edit this estimate', edit_estimate_path(@estimate), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to 'Destroy this estimate', estimate_path(@estimate), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
