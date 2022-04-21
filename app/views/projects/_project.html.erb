@@ -9,6 +9,30 @@
         <th class="text-left px-4">Estimates</th>
         <td class="text-left"><%= project.estimates.count %></td>
       </tr>
+      <tr>
+        <th class="text-left px-4">Min magnitude</th>
+        <td class="text-left"><%= project.estimates.minimum(:min_magnitude) %>
+      </tr>
+      <tr>
+        <th class="text-left px-4">Avg likely magnitude</th>
+        <td class="text-left"><%= project.estimates.average(:likely_magnitude) %>
+      </tr>
+      <tr>
+        <th class="text-left px-4">Max magnitude</th>
+        <td class="text-left"><%= project.estimates.maximum(:max_magnitude) %>
+      </tr>
+      <tr>
+        <th class="text-left px-4">Min frequency</th>
+        <td class="text-left"><%= project.estimates.minimum(:min_frequency) %>
+      </tr>
+      <tr>
+        <th class="text-left px-4">Avg likely frequency</th>
+        <td class="text-left"><%= project.estimates.average(:likely_frequency) %>
+      </tr>
+      <tr>
+        <th class="text-left px-4">Max frequency</th>
+        <td class="text-left"><%= project.estimates.maximum(:max_frequency) %>
+      </tr>
     </table>
   </div>
   <div>
