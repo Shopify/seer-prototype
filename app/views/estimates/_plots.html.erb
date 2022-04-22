@@ -16,7 +16,10 @@
         title: "Risk",
         scale: {
           type: "linear",
-          domainMin: 0
+          domainMin: 0,
+          # TODO: something smart for domainMax that picks the
+          # highest risk value across all estimates on a project
+          domainMax: 37
         }
       },
       y: {
