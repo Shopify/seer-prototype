@@ -8,7 +8,12 @@ class Project < ApplicationRecord
   end
 
   def average_of_likely_magnitudes
-    self.estimates.average(:likely_magnitude)
+    estimate_average = self.estimates.average(:likely_magnitude)
+    if estimate_average
+      estimate_average.round(2)
+    else
+      nil
+    end
   end
 
   def max_of_max_magnitudes
@@ -20,7 +25,12 @@ class Project < ApplicationRecord
   end
 
   def average_of_likely_frequencies
-    self.estimates.average(:likely_frequency)
+    estimate_average = self.estimates.average(:likely_frequency)
+    if estimate_average
+      estimate_average.round(2)
+    else
+      nil
+    end
   end
 
   def max_of_max_frequencies
