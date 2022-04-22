@@ -6,6 +6,8 @@
 
     <%= render @project %>
 
+    <%= render "plots", project: @project %>
+
     <%= render 'estimates_table' %>
 
     <%= link_to 'Edit this project', edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
