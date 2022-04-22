@@ -27,7 +27,7 @@ class Project < ApplicationRecord
   def average_of_likely_frequencies
     estimate_average = self.estimates.average(:likely_frequency)
     if estimate_average
-      estimate_average.round(2)
+      estimate_average
     else
       nil
     end
@@ -44,7 +44,7 @@ class Project < ApplicationRecord
   def average_of_risk_modes
     estimate_average = self.estimates.map { |est| est.scenario_mode }.sum / self.estimates.count
     if estimate_average
-      estimate_average.round(2)
+      estimate_average
     else
       nil
     end

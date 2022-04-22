@@ -17,21 +17,21 @@
     </tr>
     <tr>
       <th class="bg-slate-200 border-y">Minimum</th>
-      <td class="text-center border"><%= project.min_of_min_magnitudes || "-" %>
-      <td class="text-center border"><%= project.min_of_min_frequencies || "-" %>
-      <td class="text-center border"><%= project.min_of_min_risks || "-" %>
+      <td class="text-center border"><%= project.min_of_min_magnitudes&.round(3) || "-" %>
+      <td class="text-center border"><%= project.min_of_min_frequencies&.round(3) || "-" %>
+      <td class="text-center border"><%= project.min_of_min_risks&.round(3) || "-" %>
     </tr>
     <tr>
       <th class="bg-slate-200 border-y">Avg likely</th>
-      <td class="text-center border"><%= project.average_of_likely_magnitudes || "-" %>
-      <td class="text-center border"><%= project.average_of_likely_frequencies || "-" %>
-      <td class="text-center border"><%= project.average_of_risk_modes || "-" %>
+      <td class="text-center border"><%= project.average_of_likely_magnitudes&.round(3) || "-" %>
+      <td class="text-center border"><%= project.average_of_likely_frequencies&.round(3) || "-" %>
+      <td class="text-center border"><%= project.average_of_risk_modes&.round(3) || "-" %>
     </tr>
     <tr>
       <th class="bg-slate-200 border-y">Maximum</th>
-      <td class="text-center border"><%= project.max_of_max_magnitudes || "-" %>
-      <td class="text-center border"><%= project.max_of_max_frequencies || "-" %>
-      <td class="text-center border"><%= project.max_of_max_risks || "-" %>
+      <td class="text-center border"><%= project.max_of_max_magnitudes&.round(3) || "-" %>
+      <td class="text-center border"><%= project.max_of_max_frequencies&.round(3) || "-" %>
+      <td class="text-center border"><%= project.max_of_max_risks&.round(3) || "-" %>
     </tr>
   </table>
 </div>
