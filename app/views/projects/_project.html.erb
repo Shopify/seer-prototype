@@ -4,28 +4,24 @@
 
   <table>
     <tr>
-      <th class="text-left px-4">Min magnitude</th>
-      <td class="text-left"><%= project.min_of_min_magnitudes %>
+      <th><!-- deliberately empty for layout --></th>
+      <th class="bg-slate-200 border-x">Magnitude</th>
+      <th class="bg-slate-200 border-x">Frequency</th>
     </tr>
     <tr>
-      <th class="text-left px-4">Avg likely magnitude</th>
-      <td class="text-left"><%= project.average_of_likely_magnitudes %>
+      <th class="bg-slate-200 border-y">Minimum</th>
+      <td class="text-left border"><%= project.min_of_min_magnitudes %>
+      <td class="text-left border"><%= project.min_of_min_frequencies %>
     </tr>
     <tr>
-      <th class="text-left px-4">Max magnitude</th>
-      <td class="text-left"><%= project.max_of_max_magnitudes %>
+      <th class="bg-slate-200 border-y">Avg likely</th>
+      <td class="text-left border"><%= project.average_of_likely_magnitudes %>
+      <td class="text-left border"><%= project.average_of_likely_frequencies %>
     </tr>
     <tr>
-      <th class="text-left px-4">Min frequency</th>
-      <td class="text-left"><%= project.min_of_min_frequencies %>
-    </tr>
-    <tr>
-      <th class="text-left px-4">Avg likely frequency</th>
-      <td class="text-left"><%= project.average_of_likely_frequencies %>
-    </tr>
-    <tr>
-      <th class="text-left px-4">Max frequency</th>
-      <td class="text-left"><%= project.max_of_max_frequencies %>
+      <th class="bg-slate-200 border-y">Maximum</th>
+      <td class="text-left border"><%= project.max_of_max_magnitudes %>
+      <td class="text-left border"><%= project.max_of_max_frequencies %>
     </tr>
   </table>
 </div>
