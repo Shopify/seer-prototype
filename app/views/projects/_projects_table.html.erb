@@ -21,12 +21,12 @@
         <td><%= link_to "📝", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
         <td class="border-x"><%= project.name %></td>
         <td class="border-x text-center"><%= project.estimates.count %></td>
-        <td class="border-x text-center"><%= project.min_of_min_magnitudes %></td>
-        <td class="border-x text-center"><%= project.average_of_likely_magnitudes %></td>
-        <td class="border-x text-center"><%= project.max_of_max_magnitudes %></td>
-        <td class="border-x text-center"><%= project.min_of_min_frequencies %></td>
-        <td class="border-x text-center"><%= project.average_of_likely_frequencies %></td>
-        <td class="border-x text-center"><%= project.max_of_max_frequencies %></td>
+        <td class="border-x text-center"><%= project.min_of_min_magnitudes || "-" %></td>
+        <td class="border-x text-center"><%= project.average_of_likely_magnitudes || "-" %></td>
+        <td class="border-x text-center"><%= project.max_of_max_magnitudes || "-" %></td>
+        <td class="border-x text-center"><%= project.min_of_min_frequencies || "-" %></td>
+        <td class="border-x text-center"><%= project.average_of_likely_frequencies || "-" %></td>
+        <td class="border-x text-center"><%= project.max_of_max_frequencies || "-" %></td>
       </tr>
     <% end %>
   </tbody>
