@@ -1,40 +1,38 @@
-<div id="<%= dom_id project %>" class="my-4 grid grid-cols-2">
-  <div>
-    <table>
-      <tr class="my-5">
-        <th class="text-left px-4">Name</th>
-        <td class="text-left"><%= project.name %></td>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Estimates</th>
-        <td class="text-left"><%= project.estimates.count %></td>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Min magnitude</th>
-        <td class="text-left"><%= project.min_of_min_magnitudes %>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Avg likely magnitude</th>
-        <td class="text-left"><%= project.average_of_likely_magnitudes %>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Max magnitude</th>
-        <td class="text-left"><%= project.max_of_max_magnitudes %>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Min frequency</th>
-        <td class="text-left"><%= project.min_of_min_frequencies %>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Avg likely frequency</th>
-        <td class="text-left"><%= project.average_of_likely_frequencies %>
-      </tr>
-      <tr>
-        <th class="text-left px-4">Max frequency</th>
-        <td class="text-left"><%= project.max_of_max_frequencies %>
-      </tr>
-    </table>
-  </div>
+<div id="<%= dom_id project %>" class="my-4">
+  <table>
+    <tr class="my-5">
+      <th class="text-left px-4">Name</th>
+      <td class="text-left"><%= project.name %></td>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Estimates</th>
+      <td class="text-left"><%= project.estimates.count %></td>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Min magnitude</th>
+      <td class="text-left"><%= project.min_of_min_magnitudes %>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Avg likely magnitude</th>
+      <td class="text-left"><%= project.average_of_likely_magnitudes %>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Max magnitude</th>
+      <td class="text-left"><%= project.max_of_max_magnitudes %>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Min frequency</th>
+      <td class="text-left"><%= project.min_of_min_frequencies %>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Avg likely frequency</th>
+      <td class="text-left"><%= project.average_of_likely_frequencies %>
+    </tr>
+    <tr>
+      <th class="text-left px-4">Max frequency</th>
+      <td class="text-left"><%= project.max_of_max_frequencies %>
+    </tr>
+  </table>
 
   <div>
     <% if action_name != "show" %>
