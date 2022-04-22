@@ -1,5 +1,5 @@
-<div id="estimate-plots" class="my-10">
-  <div id="magnitude-plot">
+<div id="estimate-plots" class="my-10 grid grid-cols-2">
+  <div id="magnitude-plot" class="mx-2">
   <%=
     Vega.lite
     .data({values: project.estimates})
@@ -51,7 +51,7 @@
     ])
   %>
   </div>
-  <div id="frequency-plot">
+  <div id="frequency-plot" class="mx-2">
   <%=
     Vega.lite
     .data({values: project.estimates})
