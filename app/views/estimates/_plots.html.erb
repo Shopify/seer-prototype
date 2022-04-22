@@ -3,16 +3,32 @@
     Vega.lite
     .data({values: estimate.scenario_bin.select(:value, :count)})
     .mark(type: "bar", tooltip: true)
+    .transform([
+      {
+        calculate: "(datum.count / 1000000) * 100",
+        as: "percentOfCount"
+      }
+    ])
     .encoding(
       x: {
         field: "value",
         type: "quantitative",
         title: "Risk",
+        scale: {
+          type: "linear",
+          domainMin: 0
+        }
       },
       y: {
-        field: "count",
+        field: "percentOfCount",
         type: "quantitative",
-        title: "Number of Scenarios",
+        title: "Percent of Scenarios",
+        scale: {
+          type: "linear",
+          # TODO: something smart for domainMax that picks the
+          # highest % across all estimates on a project
+          domainMax: 3.5
+        }
       }
     )
   %>
