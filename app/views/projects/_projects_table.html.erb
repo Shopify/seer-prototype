@@ -17,8 +17,8 @@
   <tbody class="border-y">
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to "🔎", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %></td>
-        <td><%= link_to "📝", edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
+        <td><%= link_to "🔎", project, class: "py-3 px-2" %></td>
+        <td><%= link_to "📝", edit_project_path(project), class: "py-3 px-2" %></td>
         <td class="border-x"><%= project.name %></td>
         <td class="border-x text-center"><%= project.estimates.count %></td>
         <td class="border-x text-center"><%= project.min_of_min_magnitudes || "-" %></td>
