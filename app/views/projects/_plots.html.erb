@@ -2,24 +2,54 @@
 <div id="magnitude-possibilities-plot">
   <%=
     Vega.lite
-    .data({values: project.magnitude_possibilities})
-    .mark(
-      type: "area",
-      tooltip: true,
-      interpolate: "step-after"
-    )
-    .encoding(
-      x: {
-        field: "magnitude",
-        type: "quantitative",
-        title: "Magnitude",
+    .layer([
+      {
+        data: {
+          values: project.magnitude_possibilities
+        },
+        mark: {
+          type: "area",
+          tooltip: true,
+          interpolate: "step-after"
+        },
+        encoding: {
+          x: {
+            field: "magnitude",
+            type: "quantitative",
+            title: "Magnitude",
+          },
+          y: {
+            field: "count",
+            type: "quantitative",
+            title: "Count",
+          }
+        }
       },
-      y: {
-        field: "count",
-        type: "quantitative",
-        title: "Count",
+      {
+        data: {
+          values: project.likely_magnitude_densities
+        },
+        mark: {
+          type: "bar",
+          tooltip: true,
+          color: "red",
+          width: {
+            band: 0.2
+          }
+        },
+        encoding: {
+          x: {
+            field: "magnitude",
+            type: "quantitative"
+          },
+          y: {
+            field: "count",
+            type: "quantitative",
+          }
+        }
       }
-    )
+    ])
+
   %>
   </div>
   <div id="magnitude-plot">

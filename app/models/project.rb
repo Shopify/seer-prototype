@@ -53,4 +53,10 @@ class Project < ApplicationRecord
 
     possibilites
   end
+
+  def likely_magnitude_densities
+    raw_values = self.estimates.select(:likely_magnitude).pluck(:likely_magnitude)
+    tallied_values = raw_values.tally
+    tallied_values.map {|magnitude, count| { magnitude:, count: } }
+  end
 end
