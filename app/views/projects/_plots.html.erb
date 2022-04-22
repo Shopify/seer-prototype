@@ -1,4 +1,62 @@
-<div id="estimate-plots" class="my-10 grid grid-cols-2">
+<div id="estimate-plots" class="my-10 grid grid-cols-3">
+  <div id="risk-possibilities-plot">
+  <%=
+    Vega.lite
+    .height(120)
+    .layer([
+      {
+        data: {
+          values: project.risk_possibilities
+        },
+        mark: {
+          type: "area",
+          tooltip: true,
+          interpolate: "step-after"
+        },
+        encoding: {
+          x: {
+            field: "risk",
+            type: "quantitative",
+            title: "Risk",
+            scale: {
+              domainMin: 0,
+            },
+            axis: {
+              grid: false
+            }
+          },
+          y: {
+            field: "count",
+            type: "quantitative",
+            title: "Count",
+            axis: {
+              tickMinStep: 1
+            },
+          }
+        }
+      },
+      {
+        data: {
+          values: project.modal_risk_densities
+        },
+        mark: {
+          type: "rule",
+          tooltip: true,
+          color: "red",
+          width: {
+            band: 0.1
+          }
+        },
+        encoding: {
+          x: {
+            field: "risk",
+            type: "quantitative"
+          }
+        }
+      }
+    ])
+  %>
+  </div>
   <div id="magnitude-plot" class="mx-2">
   <%=
     Vega.lite

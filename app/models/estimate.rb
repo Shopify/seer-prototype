@@ -33,6 +33,19 @@ class Estimate < ApplicationRecord
   include ActiveModel::Validations
   validates_with MonotonicEstimateValidator
 
+  def scenario_max
+    scenario_bin.maximum(:value)
+  end
+
+  def scenario_mode
+    max_count = self.scenario_bin.maximum(:count)
+    scenario_bin.where(count: max_count).pluck(:value)[0]
+  end
+
+  def scenario_min
+    scenario_bin.minimum(:value)
+  end
+
   private
 
   def create_scenario_bins
