@@ -12,12 +12,12 @@
   </head>
 
   <body>
-    <nav class="w-full mx-auto text-center py-10">
+    <nav class="w-full mx-auto text-center py-4">
       <span class="rounded-lg py-3 ml-2 px-5 bg-blue-800 text-white inline-block font-medium"><%= link_to "Experts", experts_path %></span>
       <span class="rounded-lg py-3 ml-2 px-5 bg-blue-800 text-white inline-block font-medium"><%= link_to "Projects", projects_path %></span>
       <span class="rounded-lg py-3 ml-2 px-5 bg-blue-800 text-white inline-block font-medium"><%= link_to "Estimates", estimates_path %></span>
     </nav>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto px-5 flex">
       <%= yield %>
     </main>
   </body>
