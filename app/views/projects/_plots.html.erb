@@ -1,8 +1,9 @@
 <div id="estimate-plots">
-  <div id="magnitude-plot">
+  <div id="magnitude-plot" class="my-10">
   <%=
     Vega.lite
     .data({values: project.estimates})
+    .height(120)
     .layer([
       {
         mark: {
@@ -54,6 +55,7 @@
   <%=
     Vega.lite
     .data({values: project.estimates})
+    .height(120)
     .layer([
       {
         mark: {
