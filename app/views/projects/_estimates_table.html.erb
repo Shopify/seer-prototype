@@ -3,7 +3,6 @@
   <thead>
     <tr class="bg-slate-200 border-y">
       <th>Expert</th>
-      <th>Project</th>
       <th>Min magn.</th>
       <th>Likely magn.</th>
       <th>Max magn.</th>
@@ -16,7 +15,6 @@
     <% @project.estimates.each do |estimate| %>
       <tr>
         <td class="border-x"><%= estimate.expert.name %></td>
-        <td class="border-x"><%= estimate.project.name %></td>
         <td class="border-x text-center"><%= estimate.min_magnitude %></td>
         <td class="border-x text-center"><%= estimate.likely_magnitude %></td>
         <td class="border-x text-center"><%= estimate.max_magnitude %></td>
