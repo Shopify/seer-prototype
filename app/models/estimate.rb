@@ -36,6 +36,10 @@ class Estimate < ApplicationRecord
   private
 
   def create_scenario_bins
+    # First, delete existing bins
+    ScenarioBin.destroy_by(estimate: self)
+
+    # Then, create the new bins
     magnitude_estimate = EstimatesHelper::ThreePointEstimate.new(
       min: self[:min_magnitude],
       likely: self[:likely_magnitude],
