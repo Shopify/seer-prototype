@@ -20,7 +20,7 @@ class Estimate < ApplicationRecord
   belongs_to :project
   has_many :scenario_bin
 
-  after_create :create_scenario_bins
+  after_save :create_scenario_bins
 
   validates :min_magnitude, :likely_magnitude, :max_magnitude, :min_frequency, :likely_frequency, :max_frequency, presence: true
   validates :min_magnitude, numericality: { greater_than: 0, only_integer: true }
