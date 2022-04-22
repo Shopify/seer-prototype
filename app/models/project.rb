@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   def min_of_min_magnitudes
-    self.estimates.minimum(:min_magnitude)
+    self.estimates.minimum(:min_magnitude) || "-"
   end
 
   def average_of_likely_magnitudes
@@ -12,16 +12,16 @@ class Project < ApplicationRecord
     if estimate_average
       estimate_average.round(2)
     else
-      nil
+      "-"
     end
   end
 
   def max_of_max_magnitudes
-    self.estimates.maximum(:max_magnitude)
+    self.estimates.maximum(:max_magnitude) || "-"
   end
 
   def min_of_min_frequencies
-    self.estimates.minimum(:min_frequency)
+    self.estimates.minimum(:min_frequency) || "-"
   end
 
   def average_of_likely_frequencies
@@ -29,11 +29,11 @@ class Project < ApplicationRecord
     if estimate_average
       estimate_average.round(2)
     else
-      nil
+      "-"
     end
   end
 
   def max_of_max_frequencies
-    self.estimates.maximum(:max_frequency)
+    self.estimates.maximum(:max_frequency) || "-"
   end
 end
