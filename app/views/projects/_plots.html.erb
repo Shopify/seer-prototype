@@ -1,4 +1,55 @@
 <div id="estimate-plots">
+  <div id="risk-plot">
+  <%=
+    Vega.lite
+    .data({values: project.estimate_risk_summaries})
+    .layer([
+      {
+        mark: {
+          type: "errorbar",
+          tooltip: true,
+          ticks: "black"
+        },
+        encoding: {
+          x: {
+            field: "minimum_risk",
+            type: "quantitative",
+            title: "Risk",
+
+          },
+          x2: {
+            field: "maximum_risk",
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal",
+            title: "Expert",
+          }
+        }
+      },
+      {
+        mark: {
+          type: "point",
+          tooltip: true,
+          filled: true,
+          size: 60,
+          color: "red"
+        },
+        encoding: {
+          x: {
+            field: "modal_risk",
+            type: "quantitative",
+
+          },
+          y: {
+            field: "expert_id",
+            type: "nominal"
+          }
+        }
+      }
+    ])
+  %>
+  </div>
   <div id="magnitude-plot">
   <%=
     Vega.lite

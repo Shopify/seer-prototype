@@ -26,4 +26,10 @@ class Project < ApplicationRecord
   def max_of_max_frequencies
     self.estimates.maximum(:max_frequency)
   end
+
+  def estimate_risk_summaries
+    estimates.map do |estimate|
+      { expert_id: estimate.expert.id, minimum_risk: estimate.scenario_min, modal_risk: estimate.scenario_mode, maximum_risk: estimate.scenario_max }
+    end
+  end
 end
