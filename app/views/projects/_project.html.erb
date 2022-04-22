@@ -1,13 +1,8 @@
 <div id="<%= dom_id project %>" class="my-4">
+
+  <h1 class="text-4xl"><%= project.name %></h1>
+
   <table>
-    <tr class="my-5">
-      <th class="text-left px-4">Name</th>
-      <td class="text-left"><%= project.name %></td>
-    </tr>
-    <tr>
-      <th class="text-left px-4">Estimates</th>
-      <td class="text-left"><%= project.estimates.count %></td>
-    </tr>
     <tr>
       <th class="text-left px-4">Min magnitude</th>
       <td class="text-left"><%= project.min_of_min_magnitudes %>
