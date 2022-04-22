@@ -1,5 +1,11 @@
 <div id="<%= dom_id project %>" class="my-4">
-  <h1 class="text-4xl font-bold text-center py-10"><%= project.name %></h1>
+  <h1 class="text-4xl font-bold text-center pt-10 pb-5"><%= project.name %></h1>
+
+  <div class="text-center py-4">
+    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= link_to 'Edit this project', edit_project_path(@project) %></span>
+    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= button_to 'Destroy this project', project_path(@project), method: :delete %></span>
+    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= link_to 'Back to projects', projects_path %></span>
+  </div>
 
   <table>
     <caption>Summary of estimates</caption>
