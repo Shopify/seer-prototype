@@ -37,6 +37,23 @@ class Project < ApplicationRecord
     self.estimates.maximum(:max_frequency)
   end
 
+  def min_of_min_risks
+    self.estimates.map { |est| est.scenario_min }.min
+  end
+
+  def average_of_risk_modes
+    estimate_average = self.estimates.map { |est| est.scenario_mode }.sum / self.estimates.count
+    if estimate_average
+      estimate_average.round(2)
+    else
+      nil
+    end
+  end
+
+  def max_of_max_risks
+    self.estimates.map { |est| est.scenario_max }.max
+  end
+
   def risk_possibilities
     estimates = self.estimates.map { |est| {scenario_max: est.scenario_max, scenario_min: est.scenario_min} }
     operations = {}
