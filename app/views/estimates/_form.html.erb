@@ -39,17 +39,18 @@
 
   <div class="my-5">
     <%= form.label :min_frequency %>
-    <%= form.text_field :min_frequency, step: 0.1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.number_field :min_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "minFrequency" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
   </div>
 
   <div class="my-5">
     <%= form.label :likely_frequency %>
-    <%= form.text_field :likely_frequency, step: 0.1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.range_field :likely_frequency, step: 0.1, data: { action: "input->estimate#updateLikelyFrequency", "estimate-target": "likelyFrequency" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <output for="estimate_likely_frequency" data-estimate-target="likelyFrequencyOutput"></output>
   </div>
 
   <div class="my-5">
     <%= form.label :max_frequency %>
-    <%= form.text_field :max_frequency, step: 0.1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.number_field :max_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "maxFrequency" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
   </div>
 
   <div class="inline">
