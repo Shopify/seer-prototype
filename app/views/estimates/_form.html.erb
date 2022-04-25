@@ -1,4 +1,4 @@
-<%= form_with(model: estimate, class: "contents") do |form| %>
+<%= form_with(model: estimate, class: "contents", data:{ controller: "estimate" }) do |form| %>
   <% if estimate.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(estimate.errors.count, "error") %> prohibited this estimate from being saved:</h2>
@@ -23,17 +23,18 @@
 
   <div class="my-5">
     <%= form.label :min_magnitude %>
-    <%= form.number_field :min_magnitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.number_field :min_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "minMagnitude" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
   </div>
 
   <div class="my-5">
     <%= form.label :likely_magnitude %>
-    <%= form.number_field :likely_magnitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.range_field :likely_magnitude, data: { action: "input->estimate#updateLikelyMagnitude", "estimate-target": "likelyMagnitude" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <output for="estimate_likely_magnitude" data-estimate-target="likelyMagnitudeOutput"></output>
   </div>
 
   <div class="my-5">
     <%= form.label :max_magnitude %>
-    <%= form.number_field :max_magnitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+    <%= form.number_field :max_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "maxMagnitude" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
   </div>
 
   <div class="my-5">
