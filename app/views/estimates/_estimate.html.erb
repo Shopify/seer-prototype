@@ -1,48 +1,48 @@
 <div class="grid grid-cols-3">
-<div>
-<table id="<%= dom_id estimate %>">
-  <tr>
-    <th class="text-left px-4">Expert</th>
-    <td class="text-left"><%= estimate.expert.name %></td>
-  </tr>
+  <div>
+    <table id="<%= dom_id estimate %>">
+      <tr>
+        <th class="text-left px-4">Expert</th>
+        <td class="text-left"><%= estimate.expert.name %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Project</th>
-    <td class="text-left"><%= estimate.project.name %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Project</th>
+        <td class="text-left"><%= estimate.project.name %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Min magnitude</th>
-    <td class="text-left"><%= estimate.min_magnitude %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Min magnitude</th>
+        <td class="text-left"><%= estimate.min_magnitude %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Likely magnitude</th>
-    <td class="text-left"><%= estimate.likely_magnitude %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Likely magnitude</th>
+        <td class="text-left"><%= estimate.likely_magnitude %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Max magnitude</th>
-    <td class="text-left"><%= estimate.max_magnitude %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Max magnitude</th>
+        <td class="text-left"><%= estimate.max_magnitude %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Min frequency</th>
-    <td class="text-left"><%= estimate.min_frequency %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Min frequency</th>
+        <td class="text-left"><%= estimate.min_frequency %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Likely frequency</th>
-    <td class="text-left"><%= estimate.likely_frequency %></td>
-  </tr>
+      <tr>
+        <th class="text-left px-4">Likely frequency</th>
+        <td class="text-left"><%= estimate.likely_frequency %></td>
+      </tr>
 
-  <tr>
-    <th class="text-left px-4">Max frequency</th>
-    <td class="text-left"><%= estimate.max_frequency %></td>
-  </tr>
-</table>
-</div>
-<%= render "plots", estimate: estimate %>
+      <tr>
+        <th class="text-left px-4">Max frequency</th>
+        <td class="text-left"><%= estimate.max_frequency %></td>
+      </tr>
+    </table>
+  </div>
+  <%= render "plots", estimate: estimate %>
 </div>
 <% if action_name != "show" %>
   <%= link_to "Show this estimate", estimate, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
