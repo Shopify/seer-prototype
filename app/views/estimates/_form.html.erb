@@ -39,11 +39,11 @@
     </div>
 
     <div>
-      <%= form.number_field :min_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "minMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none2" %>
+      <%= form.number_field :min_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "minMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
     </div>
     <div>
-      <%= form.range_field :likely_magnitude, data: { action: "input->estimate#updateLikelyMagnitude", "estimate-target": "likelyMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
-      <output for="estimate_likely_magnitude" data-estimate-target="likelyMagnitudeOutput"></output>
+      <%= form.range_field :likely_magnitude, data: { action: "input->estimate#updateLikelyMagnitude", "estimate-target": "likelyMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-fit" %>
+      <span class="ml-2 text-lg italic align-top h-max"><output for="estimate_likely_magnitude" data-estimate-target="likelyMagnitudeOutput"></output></span>
     </div>
     <div>
       <%= form.number_field :max_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "maxMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
@@ -63,8 +63,8 @@
       <%= form.number_field :min_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "minFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
     </div>
     <div>
-      <%= form.range_field :likely_frequency, step: 0.1, data: { action: "input->estimate#updateLikelyFrequency", "estimate-target": "likelyFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
-      <output for="estimate_likely_frequency" data-estimate-target="likelyFrequencyOutput"></output>
+      <%= form.range_field :likely_frequency, step: 0.1, data: { action: "input->estimate#updateLikelyFrequency", "estimate-target": "likelyFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-fit" %>
+      <span class="ml-2 text-lg italic align-top h-max"><output for="estimate_likely_frequency" data-estimate-target="likelyFrequencyOutput"></output></span>
     </div>
     <div>
       <%= form.number_field :max_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "maxFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
