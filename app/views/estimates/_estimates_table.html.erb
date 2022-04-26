@@ -6,12 +6,15 @@
       <th></th>
       <th>Expert</th>
       <th>Project</th>
-      <th class="px-2">Minimum<br>magnitude</th>
-      <th class="px-2">Likely<br>magnitude</th>
-      <th class="px-2">Maximum<br>magnitude</th>
-      <th class="px-2">Minimum<br>frequency</th>
-      <th class="px-2">Likely<br>frequency</th>
-      <th class="px-2">Maximum<br>frequency</th>
+      <th class="px-4">Minimum<br>magnitude</th>
+      <th class="px-4">Likely<br>magnitude</th>
+      <th class="px-4">Maximum<br>magnitude</th>
+      <th class="px-4">Minimum<br>frequency</th>
+      <th class="px-4">Likely<br>frequency</th>
+      <th class="px-4">Maximum<br>frequency</th>
+      <th class="px-4">Minimum<br>risk</th>
+      <th class="px-4">Likely<br>risk</th>
+      <th class="px-4">Maximum<br>risk</th>
     </tr>
   </thead>
   <tbody class="border-y">
@@ -27,6 +30,9 @@
         <td class="border-x text-center"><%= estimate.min_frequency %></td>
         <td class="border-x text-center"><%= estimate.likely_frequency %></td>
         <td class="border-x text-center"><%= estimate.max_frequency %></td>
+        <td class="border-x text-center"><%= estimate.scenario_min.round(3) %></td>
+        <td class="border-x text-center"><%= estimate.scenario_mode.round(3) %></td>
+        <td class="border-x text-center"><%= estimate.scenario_max.round(3) %></td>
       </tr>
     <% end %>
   </tbody>
