@@ -3,7 +3,6 @@
   <thead>
     <tr class="bg-slate-200 border-y">
       <th></th>
-      <th></th>
       <th>Expert</th>
       <th>Project</th>
       <th class="px-4">Minimum<br>magnitude</th>
@@ -20,8 +19,10 @@
   <tbody class="border-y">
     <% estimates.each do |estimate| %>
       <tr>
-        <td><%= link_to "🔎", estimate, class: "py-3 px-2" %></td>
-        <td><%= link_to "📝", edit_estimate_path(estimate), class: "py-3 px-2" %></td>
+        <td>
+          <%= link_to "🔎", estimate, class: "py-3 px-2" %>
+          <%= link_to "📝", edit_estimate_path(estimate), class: "py-3 px-2" %>
+        </td>
         <td class="border-x px-2"><%= estimate.expert.name %></td>
         <td class="border-x px-2"><%= estimate.project.name %></td>
         <td class="border-x text-center"><%= estimate.min_magnitude %></td>

@@ -3,7 +3,6 @@
   <thead>
     <tr class="bg-slate-200 border-y">
       <th class="py-2"></th>
-      <th class="py-2"></th>
       <th class="py-2">Name</th>
       <th class="py-2">Estimates</th>
       <th class="py-2">Minimum<br>magnitude</th>
@@ -17,8 +16,10 @@
   <tbody class="border-y">
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to "🔎", project, class: "py-3 px-2" %></td>
-        <td><%= link_to "📝", edit_project_path(project), class: "py-3 px-2" %></td>
+        <td>
+          <%= link_to "🔎", project, class: "py-3 px-2" %>
+          <%= link_to "📝", edit_project_path(project), class: "py-3 px-2" %>
+        </td>
         <td class="border-x"><%= project.name %></td>
         <td class="border-x text-center"><%= project.estimates.count %></td>
         <td class="border-x text-center"><%= project.min_of_min_magnitudes.round(3) || "-" %></td>
