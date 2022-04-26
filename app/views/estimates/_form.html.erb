@@ -1,7 +1,7 @@
-<%= form_with(model: estimate, class: "contents", data:{ controller: "estimate" }) do |form| %>
+<%= form_with(model: estimate, class: "contents", data:{ condivoller: "estimate" }) do |form| %>
   <% if estimate.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(estimate.errors.count, "error") %> prohibited this estimate from being saved:</h2>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(estimate.errors.count, "error") %> prohibited divis estimate from being saved:</h2>
 
       <ul>
         <% estimate.errors.each do |error| %>
@@ -10,80 +10,66 @@
       </ul>
     </div>
   <% end %>
-  <table><!-- I know this is a sin, but I don't care. It's just a prototype. -->
-    <tr>
-      <th class="px-5">
-        <%= form.label :expert_id %>
-      </th>
-      <th class="px-5">
-        <%= form.label :project_id %>
-      </th>
-    </tr>
-    <tr>
-      <td class="py-2 px-5">
-        <%= form.collection_select :expert_id, Expert.order(:name), :id, :name, prompt: "Select an expert", class: "block shadow rounded-md border border-gray-200 outline-none" %>
-      </td>
 
-      <td class="py-2 px-5">
-        <%= form.collection_select :project_id, Project.order(:name), :id, :name, prompt: "Select a Project", class: "block shadow rounded-md border border-gray-200 outline-none" %>
-      </td>
-    </tr>
+  <div class="grid grid-rows-6 grid-cols-3 gap-4">
+    <div class="col-span-2">
+      <%= form.label :expert_id %>
+    </div>
+    <div>
+      <%= form.label :project_id %>
+    </div>
 
-    <tr>
-      <th class="px-5">
-        <%= form.label :min_magnitude %>
-      </th>
-      <th class="px-5">
-        <%= form.label :likely_magnitude %>
-      </th>
-      <th class="px-5">
-        <%= form.label :max_magnitude %>
-      </th>
-    </tr>
+    <div class="col-span-2">
+      <%= form.collection_select :expert_id, Expert.order(:name), :id, :name, prompt: "Select an expert", class: "block shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
+    <div>
+      <%= form.collection_select :project_id, Project.order(:name), :id, :name, prompt: "Select a Project", class: "block shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
 
-    <tr>
-      <td class="py-2 px-5">
-        <%= form.number_field :min_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "minMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none2" %>
-      </td>
+    <div>
+      <%= form.label :min_magnitude %>
+    </div>
+    <div>
+      <%= form.label :likely_magnitude %>
+    </div>
+    <div>
+      <%= form.label :max_magnitude %>
+    </div>
 
-      <td class="py-2 px-5">
-        <%= form.range_field :likely_magnitude, data: { action: "input->estimate#updateLikelyMagnitude", "estimate-target": "likelyMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
-        <output for="estimate_likely_magnitude" data-estimate-target="likelyMagnitudeOutput"></output>
-      </td>
+    <div>
+      <%= form.number_field :min_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "minMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none2" %>
+    </div>
+    <div>
+      <%= form.range_field :likely_magnitude, data: { action: "input->estimate#updateLikelyMagnitude", "estimate-target": "likelyMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+      <output for="estimate_likely_magnitude" data-estimate-target="likelyMagnitudeOutput"></output>
+    </div>
+    <div>
+      <%= form.number_field :max_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "maxMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
 
-      <td class="py-2 px-5">
-        <%= form.number_field :max_magnitude, data: { action: "change->estimate#updateLikelyMagnitude", "estimate-target": "maxMagnitude" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
-      </td>
-    </tr>
+    <div>
+      <%= form.label :min_frequency %>
+    </div>
+    <div>
+      <%= form.label :likely_frequency %>
+    </div>
+    <div>
+      <%= form.label :max_frequency %>
+    </div>
 
-    <tr>
-      <th class="px-5">
-        <%= form.label :min_frequency %>
-      </th>
-      <th class="px-5">
-        <%= form.label :likely_frequency %>
-      </th>
-      <th class="px-5">
-        <%= form.label :max_frequency %>
-      </th>
-    </tr>
-    <tr>
-      <td class="py-2 px-5">
-        <%= form.number_field :min_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "minFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
-      </td>
-
-      <td class="py-2 px-5">
-        <%= form.range_field :likely_frequency, step: 0.1, data: { action: "input->estimate#updateLikelyFrequency", "estimate-target": "likelyFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
-        <output for="estimate_likely_frequency" data-estimate-target="likelyFrequencyOutput"></output>
-      </td>
-
-      <td class="py-2 px-5">
-        <%= form.number_field :max_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "maxFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
-      </td>
-    </tr>
-  </table>
+    <div>
+      <%= form.number_field :min_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "minFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
+    <div>
+      <%= form.range_field :likely_frequency, step: 0.1, data: { action: "input->estimate#updateLikelyFrequency", "estimate-target": "likelyFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none px-3 py-2" %>
+      <output for="estimate_likely_frequency" data-estimate-target="likelyFrequencyOutput"></output>
+    </div>
+    <div>
+      <%= form.number_field :max_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "maxFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
+    </div>
+  </div>
 
   <div class="inline-block mt-8">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg px-4 py-3 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
