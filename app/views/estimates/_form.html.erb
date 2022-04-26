@@ -1,4 +1,4 @@
-<%= form_with(model: estimate, class: "contents", data:{ condivoller: "estimate" }) do |form| %>
+<%= form_with(model: estimate, class: "contents", data:{ controller: "estimate" }) do |form| %>
   <% if estimate.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 font-medium rounded-lg mt-3">
       <h2><%= pluralize(estimate.errors.count, "error") %> prohibited divis estimate from being saved:</h2>
