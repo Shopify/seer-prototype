@@ -1,4 +1,4 @@
-<div id="risk-plots">
+<div id="risk-plots" class="col-span-2">
   <%=
     Vega.lite
     .data({values: estimate.scenario_bin.select(:value, :count)})
