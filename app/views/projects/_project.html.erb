@@ -2,36 +2,36 @@
   <h1 class="text-4xl font-bold text-center pt-10 pb-5"><%= project.name %></h1>
 
   <div class="text-center py-4">
-    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= link_to 'Edit this project', edit_project_path(@project) %></span>
-    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= button_to 'Destroy this project', project_path(@project), method: :delete %></span>
-    <span class="ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"><%= link_to 'Back to projects', projects_path %></span>
+    <span class="btn btn-primary"><%= link_to 'Edit this project', edit_project_path(@project) %></span>
+    <span class="btn btn-warning"><%= button_to 'Destroy this project', project_path(@project), method: :delete %></span>
+    <span class="btn"><%= link_to 'Back to projects', projects_path %></span>
   </div>
 
-  <table>
+  <table class="table">
     <caption>Summary of estimates</caption>
     <tr>
-      <th class="px-16"><!-- deliberately empty for layout --></th>
-      <th class="px-12 bg-slate-200 border-x">Magnitude</th>
-      <th class="px-12 bg-slate-200 border-x">Frequency</th>
-      <th class="px-12 bg-slate-200 border-x">Risk</th>
+      <th><!-- deliberately empty for layout --></th>
+      <th>Magnitude</th>
+      <th>Frequency</th>
+      <th>Risk</th>
     </tr>
     <tr>
-      <th class="bg-slate-200 border-y">Minimum</th>
-      <td class="text-center border"><%= project.min_of_min_magnitudes&.round(3) || "-" %>
-      <td class="text-center border"><%= project.min_of_min_frequencies&.round(3) || "-" %>
-      <td class="text-center border"><%= project.min_of_min_risks&.round(3) || "-" %>
+      <th>Minimum</th>
+      <td><%= project.min_of_min_magnitudes&.round(3) || "-" %>
+      <td><%= project.min_of_min_frequencies&.round(3) || "-" %>
+      <td><%= project.min_of_min_risks&.round(3) || "-" %>
     </tr>
     <tr>
-      <th class="bg-slate-200 border-y">Avg likely</th>
-      <td class="text-center border"><%= project.average_of_likely_magnitudes&.round(3) || "-" %>
-      <td class="text-center border"><%= project.average_of_likely_frequencies&.round(3) || "-" %>
-      <td class="text-center border"><%= project.average_of_risk_modes&.round(3) || "-" %>
+      <th>Avg likely</th>
+      <td><%= project.average_of_likely_magnitudes&.round(3) || "-" %>
+      <td><%= project.average_of_likely_frequencies&.round(3) || "-" %>
+      <td><%= project.average_of_risk_modes&.round(3) || "-" %>
     </tr>
     <tr>
-      <th class="bg-slate-200 border-y">Maximum</th>
-      <td class="text-center border"><%= project.max_of_max_magnitudes&.round(3) || "-" %>
-      <td class="text-center border"><%= project.max_of_max_frequencies&.round(3) || "-" %>
-      <td class="text-center border"><%= project.max_of_max_risks&.round(3) || "-" %>
+      <th>Maximum</th>
+      <td><%= project.max_of_max_magnitudes&.round(3) || "-" %>
+      <td><%= project.max_of_max_frequencies&.round(3) || "-" %>
+      <td><%= project.max_of_max_risks&.round(3) || "-" %>
     </tr>
   </table>
 </div>

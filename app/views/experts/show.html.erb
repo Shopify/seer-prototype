@@ -6,10 +6,10 @@
 
     <%= render @expert %>
 
-    <%= link_to 'Edit this expert', edit_expert_path(@expert), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this expert', edit_expert_path(@expert), class: "btn btn-primary" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this expert', expert_path(@expert), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Destroy this expert', expert_path(@expert), method: :delete, class: "btn btn-warning" %>
     </div>
-    <%= link_to 'Back to experts', experts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back to experts', experts_path, class: "btn" %>
   </div>
 </div>

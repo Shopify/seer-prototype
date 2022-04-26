@@ -1,26 +1,26 @@
-<table class="table-auto">
+<table class="table table-compact table-zebra w-full">
   <caption><%= @project.estimates.count %> <%= "estimate".pluralize %></caption>
   <thead>
-    <tr class="bg-slate-200 border-y">
+    <tr>
       <th>Expert</th>
-      <th class="px-6">Min magn.</th>
-      <th class="px-6">Likely magn.</th>
-      <th class="px-6">Max magn.</th>
-      <th class="px-6">Min freq.</th>
-      <th class="px-6">Likely freq.</th>
-      <th class="px-6">Max freq.</th>
+      <th>Min magn.</th>
+      <th>Likely magn.</th>
+      <th>Max magn.</th>
+      <th>Min freq.</th>
+      <th>Likely freq.</th>
+      <th>Max freq.</th>
     </tr>
   </thead>
-  <tbody class="border-y">
+  <tbody>
     <% @project.estimates.each do |estimate| %>
       <tr>
-        <td class="border-x px-2"><%= estimate.expert.name %></td>
-        <td class="border-x text-center"><%= estimate.min_magnitude %></td>
-        <td class="border-x text-center"><%= estimate.likely_magnitude %></td>
-        <td class="border-x text-center"><%= estimate.max_magnitude %></td>
-        <td class="border-x text-center"><%= estimate.min_frequency %></td>
-        <td class="border-x text-center"><%= estimate.likely_frequency %></td>
-        <td class="border-x text-center"><%= estimate.max_frequency %></td>
+        <td><%= estimate.expert.name %></td>
+        <td class="text-center"><%= estimate.min_magnitude %></td>
+        <td class="text-center"><%= estimate.likely_magnitude %></td>
+        <td class="text-center"><%= estimate.max_magnitude %></td>
+        <td class="text-center"><%= estimate.min_frequency %></td>
+        <td class="text-center"><%= estimate.likely_frequency %></td>
+        <td class="text-center"><%= estimate.max_frequency %></td>
       </tr>
     <% end %>
   </tbody>

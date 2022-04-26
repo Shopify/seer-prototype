@@ -1,32 +1,32 @@
-<table class="table-auto mx-auto w-full">
+<table class="table table-compact mx-auto w-full">
   <caption>Projects</caption>
   <thead>
-    <tr class="bg-slate-200 border-y">
-      <th class="py-2"></th>
-      <th class="py-2"></th>
-      <th class="py-2">Name</th>
-      <th class="py-2">Estimates</th>
-      <th class="py-2">Min magn.</th>
-      <th class="py-2">Avg likely magn.</th>
-      <th class="py-2">Max magn.</th>
-      <th class="py-2">Min freq.</th>
-      <th class="py-2">Avg likely freq.</th>
-      <th class="py-2">Max freq.</th>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Name</th>
+      <th>Estimates</th>
+      <th>Min magn.</th>
+      <th>Avg likely magn.</th>
+      <th>Max magn.</th>
+      <th>Min freq.</th>
+      <th>Avg likely freq.</th>
+      <th>Max freq.</th>
     </tr>
   </thead>
   <tbody class="border-y">
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to "🔎", project, class: "py-3 px-2" %></td>
-        <td><%= link_to "📝", edit_project_path(project), class: "py-3 px-2" %></td>
-        <td class="border-x"><%= project.name %></td>
-        <td class="border-x text-center"><%= project.estimates.count %></td>
-        <td class="border-x text-center"><%= project.min_of_min_magnitudes.round(3) || "-" %></td>
-        <td class="border-x text-center"><%= project.average_of_likely_magnitudes.round(3) || "-" %></td>
-        <td class="border-x text-center"><%= project.max_of_max_magnitudes.round(3) || "-" %></td>
-        <td class="border-x text-center"><%= project.min_of_min_frequencies.round(3) || "-" %></td>
-        <td class="border-x text-center"><%= project.average_of_likely_frequencies.round(3) || "-" %></td>
-        <td class="border-x text-center"><%= project.max_of_max_frequencies.round(3) || "-" %></td>
+      <tr class="hover">
+        <td><%= link_to "🔎", project %></td>
+        <td><%= link_to "📝", edit_project_path(project) %></td>
+        <td><%= project.name %></td>
+        <td><%= project.estimates.count %></td>
+        <td><%= project.min_of_min_magnitudes.round(3) || "-" %></td>
+        <td><%= project.average_of_likely_magnitudes.round(3) || "-" %></td>
+        <td><%= project.max_of_max_magnitudes.round(3) || "-" %></td>
+        <td><%= project.min_of_min_frequencies.round(3) || "-" %></td>
+        <td><%= project.average_of_likely_frequencies.round(3) || "-" %></td>
+        <td><%= project.max_of_max_frequencies.round(3) || "-" %></td>
       </tr>
     <% end %>
   </tbody>
