@@ -16,10 +16,7 @@
         title: "Risk",
         scale: {
           type: "linear",
-          domainMin: 0,
-          # TODO: something smart for domainMax that picks the
-          # highest risk value across all estimates on a project
-          domainMax: 37
+          domainMin: 0
         }
       },
       y: {
@@ -27,10 +24,7 @@
         type: "quantitative",
         title: "Percent of Scenarios",
         scale: {
-          type: "linear",
-          # TODO: something smart for domainMax that picks the
-          # highest % across all estimates on a project
-          domainMax: 2.5
+          type: "linear"
         }
       }
     )
