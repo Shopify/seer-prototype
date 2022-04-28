@@ -222,6 +222,7 @@ DEPENDENCIES
   histogram
   importmap-rails
   jbuilder
+  nokogiri (>= 1.13.4)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.4)
   selenium-webdriver
