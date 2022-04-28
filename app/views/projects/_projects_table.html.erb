@@ -2,23 +2,26 @@
   <caption>Projects</caption>
   <thead>
     <tr class="bg-slate-200 border-y">
-      <th class="px-4 py-2"></th>
-      <th class="px-4 py-2">Name</th>
-      <th class="px-4 py-2">Estimates</th>
-      <th class="px-4 py-2">Minimum<br>magnitude</th>
-      <th class="px-4 py-2">Avgerage likely<br>magnitude</th>
-      <th class="px-4 py-2">Maximum<br>magnitude</th>
-      <th class="px-4 py-2">Minimum<br>frequency</th>
-      <th class="px-4 py-2">Average likely<br>frequency</th>
-      <th class="px-4 py-2">Maximum<br>frequency</th>
+      <th class="px-2"><!-- for view/edit links --> </th>
+      <th class="px-2">Name</th>
+      <th class="px-2">Estimates</th>
+      <th class="px-2">Minimum<br>magnitude</th>
+      <th class="px-2">Avgerage likely<br>magnitude</th>
+      <th class="px-2">Maximum<br>magnitude</th>
+      <th class="px-2">Minimum<br>frequency</th>
+      <th class="px-2">Average likely<br>frequency</th>
+      <th class="px-2">Maximum<br>frequency</th>
+      <th class="px-2">Minimum<br>risk</th>
+      <th class="px-2">Average Likely<br>risk</th>
+      <th class="px-2">Maximum<br>risk</th>
     </tr>
   </thead>
   <tbody class="border-y">
     <% @projects.each do |project| %>
       <tr>
         <td>
-          <%= link_to "🔎", project, class: "py-3 px-2" %>
-          <%= link_to "📝", edit_project_path(project), class: "py-3 px-2" %>
+          <%= link_to "🔎", project %>
+          <%= link_to "📝", edit_project_path(project), class: "px-2" %>
         </td>
         <td class="border-x"><%= project.name %></td>
         <td class="border-x text-center"><%= project.estimates.count %></td>
@@ -28,6 +31,9 @@
         <td class="border-x text-center"><%= project.min_of_min_frequencies.round(3) || "-" %></td>
         <td class="border-x text-center"><%= project.average_of_likely_frequencies.round(3) || "-" %></td>
         <td class="border-x text-center"><%= project.max_of_max_frequencies.round(3) || "-" %></td>
+        <td class="border-x text-center"><%= project.min_of_min_risks&.round(3) || "-" %>
+        <td class="border-x text-center"><%= project.average_of_risk_modes&.round(3) || "-" %>
+        <td class="border-x text-center"><%= project.max_of_max_risks&.round(3) || "-" %>
       </tr>
     <% end %>
   </tbody>
