@@ -5,23 +5,23 @@
       <th></th>
       <th>Expert</th>
       <th>Project</th>
-      <th class="px-4 py-2">Minimum<br>magnitude</th>
-      <th class="px-4 py-2">Likely<br>magnitude</th>
-      <th class="px-4 py-2">Maximum<br>magnitude</th>
-      <th class="px-4 py-2">Minimum<br>frequency</th>
-      <th class="px-4 py-2">Likely<br>frequency</th>
-      <th class="px-4 py-2">Maximum<br>frequency</th>
-      <th class="px-4 py-2">Minimum<br>risk</th>
-      <th class="px-4 py-2">Likely<br>risk</th>
-      <th class="px-4 py-2">Maximum<br>risk</th>
+      <th class="px-2">Minimum<br>magnitude</th>
+      <th class="px-2">Likely<br>magnitude</th>
+      <th class="px-2">Maximum<br>magnitude</th>
+      <th class="px-2">Minimum<br>frequency</th>
+      <th class="px-2">Likely<br>frequency</th>
+      <th class="px-2">Maximum<br>frequency</th>
+      <th class="px-2">Minimum<br>risk</th>
+      <th class="px-2">Likely<br>risk</th>
+      <th class="px-2">Maximum<br>risk</th>
     </tr>
   </thead>
   <tbody class="border-y">
     <% estimates.each do |estimate| %>
       <tr>
         <td>
-          <%= link_to "🔎", estimate, class: "py-3 px-2" %>
-          <%= link_to "📝", edit_estimate_path(estimate), class: "py-3 px-2" %>
+          <%= link_to "🔎", estimate %>
+          <%= link_to "📝", edit_estimate_path(estimate), class: "px-2" %>
         </td>
         <td class="border-x px-2"><%= estimate.expert.name %></td>
         <td class="border-x px-2"><%= estimate.project.name %></td>
