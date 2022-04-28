@@ -33,6 +33,8 @@ class Estimate < ApplicationRecord
   include ActiveModel::Validations
   validates_with MonotonicEstimateValidator
 
+  attr_accessor :number_of_samples
+
   def scenario_max
     scenario_bin.maximum(:value)
   end
@@ -64,7 +66,7 @@ class Estimate < ApplicationRecord
       max: self[:max_frequency]
     )
 
-    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
+    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample(number_of_samples:)
 
     sampled_scenarios.each do |scenario|
       ScenarioBin.create(estimate: self, value: scenario[:value], count: scenario[:count])

@@ -27,10 +27,10 @@ module EstimatesHelper
       @frequency_estimate = frequency_estimate
     end
 
-    def sample
+    def sample(number_of_samples: 1_000_000)
       sampled_scenarios = []
 
-      1_000_000.times do
+      number_of_samples.times do
         magnitude = @magnitude_estimate.sample
         frequency = @frequency_estimate.sample
 
