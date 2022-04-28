@@ -8,6 +8,8 @@
 
 # Experts
 
+puts "Loading seed data. This will take some time, please be patient."
+
 barbara_fu = Expert.create({ name: "Dr Barbara Fu" })
 james_squirington = Expert.create({ name: "James Squirington, Esq" })
 dane_the_dog = Expert.create({ name: "Dane the Dog" })
