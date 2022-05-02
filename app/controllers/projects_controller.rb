@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    # Return in descending order of average modal risk
+    @projects = Project.all.sort {|left,right| left.average_of_risk_modes <=> right.average_of_risk_modes }.reverse
   end
 
   # GET /projects/1 or /projects/1.json
