@@ -85,4 +85,11 @@ class Project < ApplicationRecord
     raw_values = self.estimates.map { |est| est.scenario_mode }
     raw_values.map {|risk| { risk: } }
   end
+
+  def average_distribution
+    estimate_histograms = self.estimates
+    .map {|est| est.scenario_bin.select(:estimate_id, :value, :count)}
+    .flatten
+    .sort {|left, right| left.value <=> right.value}
+  end
 end

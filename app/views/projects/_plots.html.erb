@@ -1,4 +1,52 @@
-<div id="estimate-plots" class="my-10 grid grid-cols-3">
+<div id="estimate-plots" class="my-10 grid grid-cols-3 grid-rows-2 gap-2 items-center">
+  <div id="average-risks-plot" class="col-span-3">
+  <%=
+    Vega.lite
+    .layer([
+      {
+        data: {
+          values: project.average_distribution
+        },
+        mark: {
+          type: "bar",
+          tooltip: true
+        },
+        encoding: {
+          x: {
+            field: "value",
+            type: "quantitative"
+          },
+          y: {
+            field: "count",
+            type: "quantitative"
+          },
+          color: {
+            field: "estimate_id"
+          }
+        }
+      },
+      {
+        data: {
+          values: [{mean_risk: project.average_of_risk_modes}]
+        },
+        mark: {
+          type: "rule",
+          tooltip: true,
+          color: "red",
+          width: {
+            band: 1.5
+          }
+        },
+        encoding: {
+          x: {
+            field: "mean_risk",
+            type: "quantitative"
+          }
+        }
+      }
+    ])
+  %>
+  </div>
   <div id="risk-possibilities-plot">
   <%=
     Vega.lite
