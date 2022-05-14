@@ -66,6 +66,6 @@ class EstimatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def estimate_params
-      params.require(:estimate).permit(:expert_id, :project_id, :max_magnitude, :likely_magnitude, :min_magnitude, :max_frequency, :likely_frequency, :min_frequency)
+      params.require(:estimate).permit(:expert_id, :project_id, :familiarity_id, :max_magnitude, :likely_magnitude, :min_magnitude, :max_frequency, :likely_frequency, :min_frequency)
     end
 end

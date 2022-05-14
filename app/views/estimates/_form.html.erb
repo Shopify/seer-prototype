@@ -18,15 +18,19 @@
     <div class="font-bold mt-6">
       <%= form.label :project_id %>
     </div>
-    <div><!-- do nothing because col-span-2 looks wrong --></div>
+    <div class="font-bold mt-6">
+      <%= form.label :familiarity_id %>
+    </div>
 
     <div>
-      <%= form.collection_select :expert_id, Expert.order(:name), :id, :name, {prompt: "Select an expert"}, {class: "px-6 py-2 block shadow rounded-md border border-gray-200 outline-none"} %>
+      <%= form.collection_select :expert_id, Expert.order(:name), :id, :name, {prompt: "Select an Expert"}, {class: "px-6 py-2 block shadow rounded-md border border-gray-200 outline-none"} %>
     </div>
     <div>
       <%= form.collection_select :project_id, Project.order(:name), :id, :name, {prompt: "Select a Project"}, {class: "px-6 py-2 block shadow rounded-md border border-gray-200 outline-none"} %>
     </div>
-    <div><!-- do nothing because col-span-2 looks wrong --></div>
+    <div>
+      <%= form.collection_select :familiarity_id, Familiarity.order(:id), :id, :description, {prompt: "Select Familiarity"}, {class: "px-6 py-2 block shadow rounded-md border border-gray-200 outline-none"} %>
+    </div>
 
     <div class="font-bold mt-6">
       <%= form.label :min_magnitude %>

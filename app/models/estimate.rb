@@ -18,11 +18,12 @@ end
 class Estimate < ApplicationRecord
   belongs_to :expert
   belongs_to :project
+  belongs_to :familiarity
   has_many :scenario_bin
 
   after_save :create_scenario_bins
 
-  validates :min_magnitude, :likely_magnitude, :max_magnitude, :min_frequency, :likely_frequency, :max_frequency, presence: true
+  validates :min_magnitude, :likely_magnitude, :max_magnitude, :min_frequency, :likely_frequency, :max_frequency, :familiarity, presence: true
   validates :min_magnitude, numericality: { greater_than: 0, only_integer: true }
   validates :likely_magnitude, numericality: { greater_than: 0, only_integer: true }
   validates :max_magnitude, numericality: { greater_than: 0, only_integer: true }
