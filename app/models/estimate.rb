@@ -66,7 +66,7 @@ class Estimate < ApplicationRecord
       max: self[:max_frequency]
     )
 
-    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample(number_of_samples:)
+    sampled_scenarios = EstimatesHelper::Scenario.new(magnitude_estimate:, frequency_estimate:).sample
 
     sampled_scenarios.each do |scenario|
       ScenarioBin.create(estimate: self, value: scenario[:value], count: scenario[:count])
