@@ -19,7 +19,7 @@ module EstimatesHelper
     end
   end
 
-  class Scenario
+  class Scenarios
     require 'histogram/array'
 
     def initialize(magnitude_estimate:, frequency_estimate:)
