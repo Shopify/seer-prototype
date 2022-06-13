@@ -24,6 +24,46 @@ $ bin/rails server
 
 There will now be a server listening at [localhost:3000](http://localhost:3000/).
 
+## How the core estimation calculation works
+
+The core of SEER is a Monte Carlo method. For the three-point estimates
+(ie the two ranges with modes), one for frequency and one for magnitude,
+a sample is taken from each and multiplied to calculate a risk amount.
+This is done a million times to create an approximation of the combined
+distribution of frequency and magnitude.
+
+A Monte Carlo process is followed when an `Estimate` model is saved. The
+`#create_scenario_bins` method is set to be called `after_save`.
+
+`#create_scenario_bins` first clears existing estimate results from the DB.
+It then creates `ThreePointEstimate` objects for each of the frequency and
+magnitude estimate values given by the expert. These are passed into a
+`Scenarios` object.
+
+The `ThreePointEstimate` and `Scenarios` live in `app/helpers/estimates_helper.rb`.
+The `ThreePointEstimate` class represents the three basic data points for the
+estimate. Based on these it provides a `#sample` method, which takes a randomly
+chosen value from a triangular distribution configured with the minimum, modal
+and maximum values of the estimate. The triangular distribution sample is provided
+by the [simple-random](https://github.com/ealdent/simple-random) gem. It's not
+clear whether this is a CSRPNG, but it doesn't matter for our purposes.
+
+Alongside `ThreePointEstimate` is `Scenarios`. The `Scenarios#sample` method performs
+the process of repeatedly calling `ThreePointEstimate#sample` multiple times, as
+set by the `number_of_samples` argument. `ThreePointEstimate#sample` is called
+on the frequency estimate and on the magnitude estimate, and the results are
+multiplied to get the risk for that scenario. Then the value is stored in an
+array of risks.
+
+Once this sampling loop is complete, `Scenarios#sample` converts the results
+into a histogram with 100 bins. This is then munged into a convenient format,
+which is an array of hashes of the form:
+`{value: <boundary of bucket>, count: <number of results in bucket>}`.
+
+Once control returns from `Scenarios#sample` to `Estimate#create_scenario_bins`,
+the method creates 100 `ScenarioBin` model records to represent the 100 histogram
+bins that were generated during the sampling process.
+
 ## Copyright License
 
 This repository is licensed under the Apache v2 License:
