@@ -10,7 +10,7 @@ for open source software.
 First set up the assets and database:
 
 ```shell
-$ bin/rails assets:precompule db:migrate db:seed
+$ bin/rails assets:precompile db:migrate db:seed
 ```
 
 Seeding takes several minutes.
