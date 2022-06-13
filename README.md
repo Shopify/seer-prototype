@@ -1,9 +1,10 @@
 # SEER: Security Expert Elicitation of Risks
 
-**This tool is a prototype only.**
+**This tool is a PROTOTYPE ONLY. This is NOT an official or supported Shopify project.**
 
-SEER provides a tool for security experts to provide estimates of risk
-for open source software.
+The SEER prototype is a tool for security experts to provide estimates of risk
+for open source software. It is intended to demonstrate how a production-ready
+service might work, but is not production-ready in itself.
 
 ## To run the software
 
