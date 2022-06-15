@@ -56,13 +56,16 @@ There will now be a server listening at [localhost:3000](http://localhost:3000/)
 
 ## How the core estimation calculation works
 
-The core of SEER is a Monte Carlo method. For the three-point estimates
-(ie the two ranges with modes), one for frequency and one for magnitude,
-a sample is taken from each and multiplied to calculate a risk amount.
-This is done a million times to create an approximation of the combined
-distribution of frequency and magnitude.
+The core of SEER inspired by [FAIR](https://www.fairinstitute.org/), which is
+based on a Monte Carlo method.
 
-A Monte Carlo process is followed when an `Estimate` model is saved. The
+The user provides two three-point estimates (min, mode/likely, max), one
+for frequency and one for magnitude. To produce a risk value, a sample is
+taken from each and multiplied to calculate a risk amount. This is done a
+million times to create an approximation of the combined distribution of
+frequency and magnitude.
+
+The Monte Carlo process is followed when an `Estimate` model is saved. The
 `#create_scenario_bins` method is set to be called `after_save`.
 
 `#create_scenario_bins` first clears existing estimate results from the DB.
