@@ -6,6 +6,13 @@ The SEER prototype is a tool for security experts to provide estimates of risk
 for open source software. It is intended to demonstrate how a production-ready
 service might work, but is not production-ready in itself.
 
+The core of SEER inspired by [FAIR](https://www.fairinstitute.org/), which is
+based on a Monte Carlo method. The main departure from FAIR (and similar
+approaches like [Hubbard & Seiersen's](https://www.google.com/books/edition/How_to_Measure_Anything_in_Cybersecurity/AwD0BgAAQBAJ?hl=en)) is that SEER
+can integrate _multiple_ estimates per subject of estimation.
+
+Note well: there are no tests. These figures may be nonsense.
+
 ## To run the software
 
 ### Local development
@@ -55,9 +62,6 @@ $ docker run -p 3000:3000 seer
 There will now be a server listening at [localhost:3000](http://localhost:3000/).
 
 ## How the core estimation calculation works
-
-The core of SEER inspired by [FAIR](https://www.fairinstitute.org/), which is
-based on a Monte Carlo method.
 
 The user provides two three-point estimates (min, mode/likely, max), one
 for frequency and one for magnitude. To produce a risk value, a sample is
