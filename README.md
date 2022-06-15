@@ -8,6 +8,8 @@ service might work, but is not production-ready in itself.
 
 ## To run the software
 
+### Local development
+
 First set up the assets and database:
 
 ```shell
@@ -20,6 +22,34 @@ Second, run the rails process:
 
 ```shell
 $ bin/rails server
+```
+
+There will now be a server listening at [localhost:3000](http://localhost:3000/).
+
+### Containerised
+
+If you prefer to use Docker or podman, you can build a container image.
+
+For podman:
+```shell
+$ podman build . --tag seer
+```
+
+For Docker:
+```shell
+$ docker build . --tag seer
+```
+
+After building the image, you can run it.
+
+For podman:
+```shell
+$ podman run -p 3000:3000 seer
+```
+
+For Docker:
+```shell
+$ docker run -p 3000:3000 seer
 ```
 
 There will now be a server listening at [localhost:3000](http://localhost:3000/).
