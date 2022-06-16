@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="grid grid-rows-6 grid-cols-3 gap-x-8 place-items-center">
+  <div class="grid grid-rows-8 grid-cols-3 gap-x-8 place-items-center">
     <div class="font-bold mt-6">
       <%= form.label :expert_id %>
     </div>
@@ -73,8 +73,15 @@
     <div>
       <%= form.number_field :max_frequency, step: 0.1, data: { action: "change->estimate#updateLikelyFrequency", "estimate-target": "maxFrequency" }, class: "block-inline shadow rounded-md border border-gray-200 outline-none" %>
     </div>
-  </div>
 
+    <div class="col-span-3 font-bold mt-6">
+      <%= form.label :justification %>
+    </div>
+
+    <div class="col-span-3 align-left">
+      <%= form.text_area :justification, rows: 10, cols: 70 %>
+    </div>
+  </div>
   <div class="inline-block mt-8">
     <%= form.submit class: "rounded-lg px-4 py-3 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
