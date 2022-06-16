@@ -13,6 +13,11 @@ can integrate _multiple_ estimates per subject of estimation.
 
 Note well: there are no tests. These figures may be nonsense.
 
+The version you are looking at continues to evolve, meaning that it will have
+diverged from the version demoed in my [_How Do We Rank Project Risk?_](https://ossna2022.sched.com/event/e992f6daac4b7c79223c101ab9ec7de1) talk at
+OS Summit North America 2022.
+For convenience you may find [that version at this tag](https://github.com/Shopify/seer-prototype/tree/ranking-project-risk-presentation).
+
 ## To run the software
 
 ### Local development
