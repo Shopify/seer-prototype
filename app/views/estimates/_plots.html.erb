@@ -1,11 +1,13 @@
 <div id="risk-plots" class="col-span-2">
   <%=
+    sum_of_count = estimate.scenario_bin.sum(:count)
+
     Vega.lite
     .data({values: estimate.scenario_bin.select(:value, :count)})
     .mark(type: "bar", tooltip: true)
     .transform([
       {
-        calculate: "(datum.count / 1000000) * 100",
+        calculate: "(datum.count / #{sum_of_count}) * 100",
         as: "percentOfCount"
       }
     ])
