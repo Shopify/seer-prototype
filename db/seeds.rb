@@ -30,6 +30,64 @@ used_few = Familiarity.create(description: "Used a few times")
 frequently = Familiarity.create(description: "Used frequently")
 creator_maintainer = Familiarity.create(description: "Creator or maintainer of the project")
 
+# Metrics
+
+Metric.create({
+  name: "Hotdogs Possessed",
+  value: 27,
+  kind: :product,
+  project: yellow_project
+})
+
+Metric.create({
+  name: "Bun Bakers",
+  value: 3,
+  kind: :product,
+  project: yellow_project
+})
+
+Metric.create({
+  name: "Hotdogs Possessed",
+  value: 11,
+  kind: :product,
+  project: green_project
+})
+
+Metric.create({
+  name: "Bun Bakers",
+  value: 1,
+  kind: :product,
+  project: green_project
+})
+
+Metric.create({
+  name: "Hotdogs Possessed",
+  value: 18,
+  kind: :product,
+  project: blue_project
+})
+
+Metric.create({
+  name: "Bun Bakers",
+  value: 2,
+  kind: :product,
+  project: blue_project
+})
+
+Metric.create({
+  name: "Hotdogs Possessed",
+  value: 6,
+  kind: :product,
+  project: orange_project
+})
+
+Metric.create({
+  name: "Bun Bakers",
+  value: 1,
+  kind: :product,
+  project: orange_project
+})
+
 # Estimates
 
 Estimate.create({

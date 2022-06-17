@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :estimates
   resources :projects
   resources :experts
+  resources :metrics
 end
