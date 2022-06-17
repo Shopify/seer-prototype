@@ -42,7 +42,7 @@ Metric.create({
 Metric.create({
   name: "Bun Bakers",
   value: 3,
-  kind: :product,
+  kind: :project,
   project: yellow_project
 })
 
@@ -56,7 +56,7 @@ Metric.create({
 Metric.create({
   name: "Bun Bakers",
   value: 1,
-  kind: :product,
+  kind: :project,
   project: green_project
 })
 
@@ -70,7 +70,7 @@ Metric.create({
 Metric.create({
   name: "Bun Bakers",
   value: 2,
-  kind: :product,
+  kind: :project,
   project: blue_project
 })
 
@@ -84,7 +84,7 @@ Metric.create({
 Metric.create({
   name: "Bun Bakers",
   value: 1,
-  kind: :product,
+  kind: :project,
   project: orange_project
 })
 
