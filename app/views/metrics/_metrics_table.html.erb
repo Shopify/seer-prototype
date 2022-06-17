@@ -1,0 +1,26 @@
+<table class="table-auto mx-auto w-full">
+  <caption><%= metrics.count %> <%= "metric".pluralize %></caption>
+  <thead>
+    <tr class="bg-slate-200 border-y">
+      <th class="px-2"><!-- for view/edit links --> </th>
+      <th class="px-2">Name</th>
+      <th class="px-2">Value</th>
+      <th class="px-2">Kind</th>
+      <th class="px-2">Project</th>
+    </tr>
+  </thead>
+  <tbody class="border-y">
+    <% metrics.each do |metric| %>
+      <tr>
+        <td>
+          <%= link_to "🔎", metric %>
+          <%= link_to "📝", edit_metric_path(metric), class: "px-2" %>
+        </td>
+        <td class="border-x"><%= metric.name %></td>
+        <td class="border-x text-center"><%= metric.value %></td>
+        <td class="border-x text-center"><%= metric.kind.titleize %></td>
+        <td class="border-x text-center"><%= metric.project.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
