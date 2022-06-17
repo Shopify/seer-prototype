@@ -23,12 +23,12 @@
 
   <div class="my-5">
     <%= form.label :kind %>
-    <%= form.number_field :kind, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :kind, options_for_select(Metric.kinds.map {|k, v| [k.titleize, k]}, @metric.kind), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :project_id %>
-    <%= form.text_field :project_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :project_id, options_for_select(Project.all.map {|p| [p.name, p.id] }, @metric.project.id), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

@@ -11,12 +11,12 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Kind:</strong>
-    <%= metric.kind %>
+    <%= metric.kind.titleize %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Project:</strong>
-    <%= metric.project_id %>
+    <%= metric.project.name %>
   </p>
 
   <% if action_name != "show" %>
