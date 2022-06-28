@@ -8,7 +8,14 @@
 
     <%= render "plots", project: @project %>
 
-    <%= render "estimates_summary_table", project: @project %>
+    <div class="flex">
+      <div>
+        <%= render "estimates_summary_table", project: @project %>
+      </div>
+      <div class="px-12">
+        <%= render "metrics_table", metrics: @project.metrics %>
+      </div>
+    </div>
 
     <%= render 'estimates_table' %>
   </div>

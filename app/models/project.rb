@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_many :estimates
+  has_many :metrics
 
   validates :name, presence: true
 
