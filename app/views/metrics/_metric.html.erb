@@ -1,23 +1,22 @@
 <div id="<%= dom_id metric %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= metric.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Value:</strong>
-    <%= metric.value %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Kind:</strong>
-    <%= metric.kind.titleize %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Project:</strong>
-    <%= metric.project.name %>
-  </p>
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= metric.name %></td>
+    </tr>
+    <tr>
+      <th>Value</th>
+      <td><%= metric.value %></td>
+    </tr>
+    <tr>
+      <th>Kind</th>
+      <td><%= metric.kind.titleize %></td>
+    </tr>
+    <tr>
+      <th>Project</th>
+      <td><%= metric.project.name %></td>
+    </tr>
+  </table>
 
   <% if action_name != "show" %>
     <%= link_to "Show this metric", metric, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
