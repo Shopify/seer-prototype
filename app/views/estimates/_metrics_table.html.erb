@@ -1,0 +1,19 @@
+<table class="table-auto mx-auto w-full">
+  <caption><%= metrics.count %> <%= "metric".pluralize %></caption>
+  <thead>
+    <tr class="bg-slate-200 border-y">
+      <th class="px-2">Name</th>
+      <th class="px-2">Value</th>
+      <th class="px-2">Kind</th>
+    </tr>
+  </thead>
+  <tbody class="border-y">
+    <% metrics.each do |metric| %>
+      <tr>
+        <td class="border-x"><%= metric.name %></td>
+        <td class="border-x text-center"><%= metric.value %></td>
+        <td class="border-x text-center"><%= metric.kind.titleize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
