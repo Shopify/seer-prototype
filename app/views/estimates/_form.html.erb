@@ -1,3 +1,9 @@
+<h2 class="font-bold text-2xl mb-4 mt-8">Project Metrics</h2>
+
+<%= render "metrics/metrics_table", metrics: estimate.project.metrics %>
+
+<h2 class="font-bold text-2xl mb-4 mt-8">Estimate</h2>
+
 <%= form_with(model: estimate, class: "contents", data:{ controller: "estimate" }) do |form| %>
   <% if estimate.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 font-medium rounded-lg mt-3">
