@@ -1,3 +1,5 @@
+> **This repository is no longer maintained.** It has been archived by Shopify and receives no updates or security fixes.
+
 # SEER: Security Expert Elicitation of Risks
 
 **This tool is a PROTOTYPE ONLY. This is NOT an official or supported Shopify project.**
